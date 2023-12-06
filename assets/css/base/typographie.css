@@ -1,0 +1,18 @@
+@font-face {
+    font-family: "Roboto";
+    src:
+      url("../../../assets/font/Roboto/Roboto-Regular.ttf")
+  }
+
+ 
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,700&family=Playfair+Display&family=Roboto:wght@100&display=swap');
+
+
+:root {
+    --police-principale:"Roboto"; 
+    --police-secondaire:"Montserrat";
+    
+    --texte-xs:0.8rem;
+    --texte-sm:1rem;
+    --texte-md:1.15rem;
+}

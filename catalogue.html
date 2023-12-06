@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogue d'enchères</title>
+    <meta name="description" content="Nouvelle description pour la page de catalogue de mr stampee">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+
+
+<body>
+    <header>
+
+
+    </header>
+   
+    <nav>
+        <ul role="menubar">
+
+
+            <li role="menuitem" aria-label="Menu index" aria-haspopup="false">
+                <img class="logo" src="./assets/img/logo/logo-timbre1.jpg" alt="logo de mon site ">
+
+            </li>
+
+
+            <li role="menuitem" aria-label="Menu index" aria-haspopup="false"><a href="index.html">Accueil</a></li>
+            <li role="menuitem" aria-label="Menu catalogue" aria-haspopup="false"><a
+                    href="catalogue.html">Catalogue</a></li>
+            <li role="menuitem" aria-label="Menu Produit" aria-haspopup="false"><a href="produit.html">Produit</a> </li>
+
+            <li role="menuitem" aria-label="Menu index" aria-haspopup="false" class="drap">
+                <img class="drapeau" src="./assets/img/flag.jpg" alt="drapeau de l'anglettere">
+            </li>
+
+
+
+        </ul>
+
+
+
+    </nav>
+    <main>
+
+
+        <aside>
+
+
+            <form>
+
+
+                <h2>Filtres de recherche</h2>
+
+
+                <div>
+
+                    <h3>Régions d'origine</h3>
+
+
+                    <fieldset>
+                        <label for="europe">Europe</label>
+                        <input type="checkbox" name="europe" id="europe">
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="amerique">Amerique</label>
+                        <input type="checkbox" name="amerique" id="amerique">
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="afrique">Afrique</label>
+                        <input type="checkbox" name="afrique" id="afrique">
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="asie">Asie</label>
+                        <input type="checkbox" name="asie" id="asie">
+                    </fieldset>
+
+
+                </div>
+
+
+
+
+                <div>
+
+                    <h3>condition</h3>
+
+
+                    <fieldset>
+                        <label for="superbe">Superbe</label>
+                        <input type="checkbox" name="superbe" id="superbe">
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="bonne">Bonne</label>
+                        <input type="checkbox" name="bonne" id="bonne">
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="endommage">Endommagé</label>
+                        <input type="checkbox" name="endommage" id="endommage">
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="mauvaise">Mauvaise</label>
+                        <input type="checkbox" name="mauvaise" id="mauvaise">
+                    </fieldset>
+
+
+
+                </div>
+
+
+
+
+                <div>
+
+                    <h3>Prix </h3>
+
+                    <fieldset>
+                        <label for="prix"></label>
+                        <span>0 $</span>
+                        <input type="range" id="prix" name="prix" min="0" max="800" step="100" value="0">
+                        <span>800 $</span>
+                    </fieldset>
+
+                </div>
+
+                <div>
+
+                    <h3> Année :</h3>
+
+                    <label for="date"></label>
+                    <select id="date" name="date">
+                        <option value="1900-1950">1900-1950</option>
+                        <option value="1950-2000">1990-2000</option>
+                        <option value="2000-2023">2000-2023</option>
+                    </select>
+
+
+                </div>
+
+                <div>
+
+                    <h3>Thème :</h3>
+
+
+                    <label for="theme"></label>
+                    <select id="theme" name="theme">
+                        <option value="tous">Tous les thèmes</option>
+                        <option value="faune">Faune</option>
+                        <option value="flore">Flore</option>
+                        <option value="histoire">Histoire</option>
+                        <option value="personnalites">Personnalités</option>
+                    </select>
+
+                </div>
+
+
+
+
+            </form>
+
+        </aside>
+
+        <section class=" grid-container" data-js-produit>
+
+
+            <h1>Catalogue d'enchères</h1>
+
+
+            <article class="aritcle-1">
+
+                <div class="infos-image">
+                    <img src="./assets/img/timbre4.jpg" alt="timbre">
+                </div>
+
+                <div class="infos-secondaires">
+                    <h2>Nom</h2>
+                    <p>Régions d'origine: [Nom ] </p>
+                    <p>Valeur : [Valeur] $</p>
+                    <p>Statut: [Statut ]</p>
+                </div>
+
+                <div>
+
+
+                    <input type="submit" value="Miser" class="bouton-personnalise">
+
+                </div>
+
+        
+            </article>
+
+            <article class="aritcle-1">
+
+                <div>
+
+                    <img src="./assets/img/timbre6.jpg" alt="timbre">
+
+                </div>
+
+                <div>
+                    <h2>Nom</h2>
+                    <p>Régions d'origine: [Nom ] </p>
+                    <p>Valeur : [Valeur] $</p>
+                    <p>Statut: [Statut ]</p>
+
+
+
+                </div>
+
+                <div>
+
+
+                    <input type="submit" value="Miser" class="bouton-personnalise">
+
+                </div>
+
+            </article>
+
+            <article class="aritcle-1">
+                <div>
+
+                    <img src="./assets/img/timbre5.jpg" alt="timbre">
+
+                </div>
+
+                <div>
+                    <h2>Nom</h2>
+                    <p>Régions d'origine: [Nom ] </p>
+                    <p>Valeur : [Valeur] $</p>
+                    <p>Statut: [Statut ]</p>
+
+
+
+                </div>
+
+                <div>
+
+
+                    <input type="submit" value="Miser" class="bouton-personnalise">
+
+                </div>
+
+            </article>
+
+            <article class="aritcle-1">
+                <div>
+
+                    <img src="./assets/img/b02eece6f7e6f4dd12e540fd0b19f78b.jpg" alt="timbre">
+
+                </div>
+
+                <div>
+                    <h2>Nom</h2>
+                    <p>Régions d'origine: [Nom ] </p>
+                    <p>Valeur : [Valeur] $</p>
+                    <p>Statut: [Statut ]</p>
+
+
+
+                </div>
+
+                <div>
+
+
+                    <input type="submit" value="Miser" class="bouton-personnalise">
+
+                </div>
+            </article>
+
+            <article class="aritcle-1">
+
+                <div>
+
+                    <img src="./assets/img/timbre7.jpg" alt="timbre">
+
+                </div>
+
+                <div>
+                    <h2>Nom</h2>
+                    <p>Régions d'origine: [Nom ] </p>
+                    <p>Valeur : [Valeur] $</p>
+                    <p>Statut: [Statut ]</p>
+
+
+
+                </div>
+
+                <div>
+
+
+                    <input type="submit" value="Miser" class="bouton-personnalise">
+
+                </div>
+            </article>
+
+            <article class="aritcle-1">
+
+                <div>
+
+                    <img src="./assets/img/timbre8.jpg" alt="timbre">
+
+                </div>
+
+                <div>
+                    <h2>Nom</h2>
+                    <p>Régions d'origine: [Nom ] </p>
+                    <p>Valeur : [Valeur] $</p>
+                    <p>Statut: [Statut ]</p>
+
+
+
+                </div>
+
+                <div>
+
+
+                    <input type="submit" value="Miser" class="bouton-personnalise">
+
+                </div>
+
+            </article>
+
+            <article class="aritcle-1">
+
+                <div>
+
+                    <img src="./assets/img/timbre3.jpeg" alt="timbre">
+
+                </div>
+
+                <div>
+                    <h2>Nom</h2>
+                    <p>Régions d'origine: [Nom ] </p>
+                    <p>Valeur : [Valeur] $</p>
+                    <p>Statut: [Statut ]</p>
+
+
+
+                </div>
+
+                <div>
+
+
+                    <input type="submit" value="Miser" class="bouton-personnalise">
+
+                </div>
+
+            </article>
+
+
+            <article class="aritcle-1">
+
+                <div>
+
+                    <img src="./assets/img/timbre2.jpg" alt="timbre">
+
+                </div>
+
+                <div>
+                    <h2>Nom</h2>
+                    <p>Régions d'origine: [Nom ] </p>
+                    <p>Valeur : [Valeur] $</p>
+                    <p>Statut: [Statut ]</p>
+
+
+
+                </div>
+
+                <div>
+
+
+                    <input type="submit" value="Miser" class="bouton-personnalise">
+
+                </div>
+
+            </article>
+
+            <article class="aritcle-1">
+                <div>
+
+                    <img src="./assets/img/timbre10.jpg" alt="timbre">
+
+                </div>
+
+                <div>
+                    <h2>Nom</h2>
+                    <p>Régions d'origine: [Nom ] </p>
+                    <p>Valeur : [Valeur] $</p>
+                    <p>Statut: [Statut ]</p>
+
+                </div>
+
+                <div>
+
+
+                    <input type="submit" value="Miser" class="bouton-personnalise">
+
+                </div>
+
+            </article>
+
+
+
+        </section>
+
+
+
+    </main>
+    <footer>
+
+        <div>
+            <img class="logo" src="./assets/img/logo/logo-timbre1.jpg" alt="logo de mon site ">
+
+        </div>
+         
+        <div class="contact">
+        
+            <p>info@site-detimbres.com</p>
+            <p><span><i class="fa-solid fa-phone"></i></span> 514 999-7755 </p> 
+        </div>
+
+        <div class="reseau-sociaux">
+          
+        <span><i class="fa-brands fa-instagram fa-2xl"></i></span>
+        <span><i class="fa-brands fa-facebook fa-2xl"></i></span>
+        <span><i class="fa-brands fa-x-twitter fa-2xl"></i></span>
+
+        </div>
+
+
+    </footer>
+</body>
+
+</html>

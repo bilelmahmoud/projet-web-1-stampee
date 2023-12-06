@@ -1,0 +1,217 @@
+.main-accueil{
+  display: flex;
+  flex-basis: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.stampee-introduction{
+  /* text-align: center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 100%;
+  gap: 70px;
+  margin: 0 auto;
+  padding: 1rem;
+  /* max-width: 120%; */
+}
+
+
+.image-stampee{
+  max-width: 100%;
+  flex-basis:50%;
+  align-items: center;
+  border: solid var(--couleur-secondaire) 21px;
+  border-radius: 21px;
+ 
+
+
+}
+.image-stampee img{
+  max-width: 100%;
+}
+
+.text-introduction{
+  flex-basis: 50%;
+  font-size: 1.6rem;
+  font-family: var(--police-secondaire);
+
+}
+
+.text-introduction h2{
+   font-size: 3rem;
+   color: var(--couleur-principale);
+   margin-bottom: 1rem;
+}
+
+
+
+.connexion{
+  margin: 2rem;
+  margin-bottom: 0.6rem;
+  flex-basis: 100%;
+  display: flex;
+  background-color: #f3f3f3;
+} 
+ 
+
+.text-inscription{
+  flex-basis: 70%;
+  margin: 2rem;
+  font-size: 2rem;
+  color: var(--couleur-principale);
+
+}
+
+
+
+.text-inscription > p {
+  padding: var(--espace-md);
+}
+
+.inscription{
+
+  flex-basis: 30%;
+  margin: 2rem;
+  width: 70%;
+
+}
+
+
+.image-site {
+  background: linear-gradient(90deg, rgba(46,41,78,0.499124649859944) 0%, rgba(240,240,244,0.1966036414565826) 50%, rgba(46,41,78,0.499124649859944) 100%), url(../../img/affiche.jpg);
+  background-size:100%, cover;
+  background-position: center, center;
+  width: 100%;
+  height: 50vh;
+  position: relative;
+
+  
+}
+
+
+
+.text-site{
+  position: absolute;
+  color: var(--couleur-secondaire);
+  top: 30%;
+  left: 50%;
+  font-size: 4rem;
+  text-align: center;
+  transform: translateX(-50%);
+  font-family: var( --police-secondaire);
+  font-size: 4rem;
+  background-color: #2e294e8c;
+  border-radius: 21px;
+  box-shadow: 2px 2px 2px 2px var(--couleur-troisieme);
+  
+}
+.text-site:hover{
+  animation: pulse 1.5s infinite;
+  transition: all 0.3s;
+  
+}
+
+.produit-populaire{
+  flex-basis: 100%;
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--couleur-primaire);
+  margin-top: 2rem;
+  cursor: pointer;
+
+
+
+}
+
+
+/* .mot-inscription{
+  font-size: 2.8rem;
+  font-family: var(--police-secondaire);
+  text-transform: uppercase;
+ 
+}
+ */
+
+@keyframes pulse {
+  0% {
+      transform: translate(-50%, 0) scale(1);
+  }
+  50% {
+      transform: translate(-50%, 0) scale(1.2);
+  }
+  100% {
+      transform: translate(-50%, 0) scale(1);
+  }
+}
+
+@media (max-width: 480px) {
+
+  .connexion {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+
+  .text-inscription {
+    order: 1; 
+    margin-top: 10px;
+
+  }
+
+  .text-site{
+    top: 20%;
+    font-size: 3rem;
+    
+    
+  }
+
+  .btn-connexion {
+    order: 2; 
+    width: 100%;
+    padding: 1rem;
+  
+  }
+
+  .produit-populaire{
+    margin-bottom: 10rem;
+    flex-basis: 100%;
+  }
+
+ .image-stampee {
+    
+    flex-basis: 100%;
+    align-items: center;
+    border: solid var(--couleur-secondaire) 21px;
+    border-radius: 21px;
+}
+
+.text-introduction {
+  flex-basis: 100%;
+  font-size: 1.6rem;
+  font-family: var(--police-secondaire);
+}
+
+.stampee-introduction{
+  /* max-width: 100%; */
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 100%;
+  gap: 34px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+
+
+
+
+  
+
+
+
+  
+}
+

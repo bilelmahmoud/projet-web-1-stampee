@@ -1,0 +1,129 @@
+.grid-container h1{
+    grid-column-start: 1;
+    grid-column-end: -1;
+    text-align: center;
+    font-size: 36px;
+    color: var(--couleur-principale);
+    font-family: var(--police-principale);
+}
+
+.produit-populaire h4{
+    grid-column-start: 1;
+    grid-column-end: -1;
+    text-align: left;
+    font-size: 2.6rem;
+    font-weight: bold;
+    color: var( --couleur-hover-text);
+    letter-spacing: 0.2rem;
+    font-family: var(--police-secondaire);
+    text-transform: uppercase;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; 
+    padding: var(--espace-xl);
+
+}
+
+/* .grid-introduction{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px; 
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+   
+
+} */
+
+.produit-similaire, .produit-populaire  {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 30px; 
+
+}
+
+
+.produit-similaire h1{
+    grid-column-start: 1;
+    grid-column-end: -1;
+    text-align: center;
+    font-size: 2.6rem;
+    color: var(--couleur-principale);
+    font-family: var(--police-principale);
+
+}
+
+.mise-produit .icone-favoris{
+    grid-column-start: 1;
+    grid-column-end: -1;
+    text-align: right;
+    display: block;
+    width: 100%;
+  
+}
+.mise-produit{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 10px; 
+
+}
+.aritcle-1 {
+    padding: 4rem;
+}
+.aritcle-1 img{
+    width: 100%;
+}
+
+@media (max-width: 800px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);     
+    } 
+}
+
+
+@media (max-width: 480px) {
+    .grid-container {
+        grid-template-columns: repeat(1, 1fr);     
+    }
+
+    .produit-similaire, .produit-populaire{
+        grid-template-columns: repeat(1, 1fr);
+        
+    }
+
+    .mise-produit{
+        grid-template-columns: repeat(1, 1fr); 
+        
+  
+    }
+
+    .stampee-introduction{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr); 
+    }
+
+    .affiche-image{
+
+        width: 100%;
+
+    }
+
+
+    .mise-produit .icone-favoris{
+        grid-column-start: 1;
+        grid-column-end: -1;
+        text-align: center;
+        display: block;
+        width: 100%;
+      
+    }
+    
+}
+
+
+
+

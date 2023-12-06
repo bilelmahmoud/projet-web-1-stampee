@@ -1,0 +1,61 @@
+.aritcle-1{
+background-color:var(--couleur-secondaire);
+margin-bottom: 2rem; 
+padding: 1rem;
+width: 100%;
+text-align: center;
+border: 1px solid var(--couleur-troisieme);
+border-radius: 1rem;
+font-size: 20px;
+transition: all 0.3s;
+
+   
+}
+.aritcle-1:hover{
+transform:scale(1.1)
+}
+
+.aritcle-1 > div {
+    padding: var(--espace-xl);
+}
+
+.aritcle-1 > div>p {
+    margin-bottom: var(--espace-xs);
+}
+.aritcle-1 > div>h2 {
+    margin-bottom: var(--espace-xs);
+}
+
+
+
+
+@media (max-width: 480px) {
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+aside{
+
+    flex-basis: 100%;
+
+}
+
+section{
+    flex-basis: 100%;
+    margin: 1rem;
+}
+
+
+.aritcle-1 > img {
+    width: 70%;
+}
+
+    
+  
+   
+}
+
+
+

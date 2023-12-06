@@ -1,0 +1,79 @@
+.bouton-personnalise {
+    background-color:var(--couleur-principale);
+    color: var(--couleur-quatrieme);
+    font-size: 20px;
+    border-radius: 30px ;
+    width: 40%;
+   
+}
+
+
+.btn{
+    margin: 0;
+    color: var(--couleur-icones);
+    text-decoration: none;
+    background-color:var(--couleur-principale);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 30%;
+    padding: var(--espace-xs);
+    cursor: pointer;
+    transition:300ms all;
+    padding: 1rem;
+   
+  
+}
+
+.btn > div{
+  margin: var(--espace-xs) ;
+}
+
+
+.btn-connexion{
+ 
+    background-color:var(--couleur-principale); 
+    color: var(--couleur-icones);
+    border-radius: 20px;
+    font-size: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 70%;
+    cursor: pointer;
+    box-shadow: 1px 1px 1px 1px  var(--couleur-quatrieme);
+    transition: all 350MS;
+
+}
+
+.btn-connexion > div{
+    margin: var(--espace-xs) ;
+}
+
+
+.btn-connexion > div > a{
+   text-decoration: none;
+   color: var(--couleur-secondaire);
+}
+
+.btn-connexion:hover {
+
+    background-color:var( --couleur-hover-text);
+    color:var( --couleur-secondaire);
+
+
+
+}
+
+.btn1{
+    background-color: #2E294E;
+    color: #fff; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    text-decoration: none;
+}
