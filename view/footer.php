@@ -2,7 +2,7 @@
 
 
         <div>
-            <img class="logo" src="./assets/img/logo/logo-timbre1.jpg" alt="logo de mon site ">
+            <img class="logo" src="{{path}}/assets/img/logo/logo-timbre1.jpg" alt="logo de mon site ">
 
         </div>
          

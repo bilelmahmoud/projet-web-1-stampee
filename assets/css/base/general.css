@@ -69,6 +69,44 @@ section{
     margin-left: 2rem;
 }
 
+header {
+    background-color: #aba9b8;
+    color: #fff;
+    font-size: 18px
+    
+      
+
+  }
+
+  header ul {
+    list-style: none;
+    display: flex;
+    padding: 1rem;
+    justify-content: end;
+    
+  }
+
+  header li {
+    margin-right: 20px;
+  }
+
+  header a {
+    text-decoration: none;
+    color: #fff;
+  }
+  
+ header ul li:hover > ul {
+    display: inherit;
+  }
+
+  header ul ul li {
+    width: 200px;
+    float: none;
+    display: list-item;
+    position: relative;
+  }
+
+
 footer{
     background-color: var(--couleur-principale);
     padding: 0.2rem;
@@ -77,6 +115,7 @@ footer{
     justify-content: space-between;
     align-items: center;
     bottom: 0;
+    margin-top: 2rem;
     width: 100%;
  /*    position: fixed;  */
     

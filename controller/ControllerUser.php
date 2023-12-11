@@ -43,10 +43,10 @@ class ControllerUser extends controller {
     public function store(){
         $validation = new Validation;
         extract($_POST);
+        $validation->name('nom')->value($nom)->max(100)->required();
         $validation->name('utilisateur')->value($username)->max(50)->required()->pattern('email');
         $validation->name('mot de passe')->value($password)->max(20)->min(6);
-        $validation->name('privilege')->value($privilege_id)->required();
-
+       
         if(!$validation->isSuccess()){
             // var_dump($validation->getErrors());
             $errors =  $validation->displayErrors();
@@ -66,10 +66,10 @@ class ControllerUser extends controller {
         $salt = "H3@_l?a";
         $passwordSalt = $_POST['password'].$salt;
         $_POST['password'] =  password_hash($passwordSalt, PASSWORD_BCRYPT, $options);
-        
+        $_POST['privilege_id'] = 2;
         $insert = $user->insert($_POST);
 
-        RequirePage::url('timbre/index');
+        RequirePage::url('login');
     }
 
 

@@ -1,12 +1,33 @@
 .bouton-personnalise {
+   
     background-color:var(--couleur-principale);
     color: var(--couleur-quatrieme);
-    font-size: 20px;
+    font-size: 2rem;
     border-radius: 30px ;
-    width: 40%;
+    width: 70%;
+    font-family: var(--police-secondaire);
+    text-decoration: none;
+    text-align: center;
+  
    
 }
 
+.boutton-supprimer{
+  background-color:var(--couleur-principale); 
+  padding: 2rem;   
+
+}
+
+.btn-mise{
+  display: flex;
+  justify-content: center;
+}
+
+.btn-supp-modif{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
 
 .btn{
     margin: 0;

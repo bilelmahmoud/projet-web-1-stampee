@@ -22,10 +22,13 @@ class ControllerLogin extends controller {
          exit();
         }
 
+        
+
         $user= new User;
         $checkUser = $user->checkUser($_POST['username'], $_POST['password']);
-      
-
+       /*  print_r($user);
+        die();
+ */
         Twig::render('auth/index.php', ['errors'=> $checkUser, 'user' => $_POST]);
 
         

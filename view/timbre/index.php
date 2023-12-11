@@ -134,48 +134,79 @@
                   <article class="aritcle-1">
 
                 <div class="infos-image">
-                    <img src="./assets/img/timbre4.jpg" alt="timbre">
+                <img src="{{ path }}uploads/{{ timbre.image_nom }}" alt="Image du timbre">
                 </div>
 
                 <div class="infos-secondaires">
-                    <h2>{{timbre.nom}}</h2>
-                    <p>date : {{timbre.date_creation}}</p>
-                    <p>couleur : {{timbre.couleur}}</p>
-                    <p>dimensions :{{timbre.dimensions}}</p>
+                  
+                   
+                    <h2 class="titre-timbre">{{timbre.nom}}</h2>
+                    <div class="infos-secondaires-box">
+                    <p>date</p>
+                    <p> <span class="info-span">{{timbre.date_creation}}</span></p>
+                    </div>
+
+                    <div class="infos-secondaires-box"> 
+                    <p>couleur </p>
+                    <p> <span class="info-span">{{timbre.couleur}}</span></p>
+                    </div>
+
+                    <div class="infos-secondaires-box"> 
+                    <p>dimensions</p>
+                    <p><span class="info-span" >{{timbre.dimensions}}</span></p>
+                    </div>
+
+                 
+                   
                     <p>
                         {% if timbre.certifie == 1 %}
-                            <p>certifié : Oui</p>
+                        <div class="infos-secondaires-box">
+                            <p>certifié </p>
+                            <p><span class="info-span">Oui</span> </p>
+                        </div>
                         {% else %}
-                            <p>certifié : Non</p>
+                        <div class="infos-secondaires-box">
+                            <p>certifié </p>
+                            <p><span class="info-span">Non</span> </p>
+                        </div>    
                         {% endif %}
-                    </p>    
-                    <p>pays : {{timbre.pays}}</p>
-                    <p>condition : {{timbre.condition_nom}}</p>
+                    </p>
+                    
+                    <div class="infos-secondaires-box"> 
+                    <p>pays </p>
+                    <p><span class="info-span">{{timbre.pays}}</span></p>
+                    </div>
+                    
+                    <div class="infos-secondaires-box"> 
+                    <p>condition </p>
+                    <p><span class="info-span">{{timbre.condition_nom}}</span></p>
+                    </div>
                  
                 </div>
 
-                <div>
+                <div class='btn-supp-modif'>
 
 
-                    <input type="submit" value="Miser" class="bouton-personnalise">
+                   <!--  <input type="submit" value="Miser" class="bouton-personnalise"> -->
 
+                   <a href="{{path}}timbre/show/{{timbre.id}}" class="bouton-personnalise">afficher</a><br>
+                   <a href="{{path}}timbre/show/{{timbre.id}}" class="bouton-personnalise">modifier</a>
+               <!--     <td><a href="{{path}}voiture/show/{{voiture.id}}">{{voiture.marque}}</a></td> -->
+                   
                 </div>
 
-                <div>
-                        <form class="form-membre" action="{{path}}timbre/destroy" method="post">
-                            <input type="hidden" name="id" value="{{timbre.id}}">
-                            <input type="submit" value="Delete">
-                        </form>
-                </div>
-
-        
+            
+       
             </article>
+           
             {% endfor %}
-</section>       
+</section> 
+</main>      
       <!--   
         <a href="{{ path }}timbre/create" class="btn1">Ajouter</a> -->
        
-    
+       
 </body>
+  
 </html>
-<!-- {{ include('footer.php', {title: 'Home'}) }} -->
+{{ include('footer.php', {title: 'Home'}) }}    

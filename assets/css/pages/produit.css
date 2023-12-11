@@ -17,8 +17,15 @@
     padding: 2rem;
     border-radius: 21px;
     box-shadow: 2px 2px 2px 2px var(--couleur-secondaire);
+    width: 50%;
  
 }
+
+.affiche-image img{
+   width: 50%;
+}
+
+
 
 .mise-produit{
 

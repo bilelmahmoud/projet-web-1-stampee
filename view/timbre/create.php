@@ -1,4 +1,4 @@
-{{ include('header.php', {title: 'Voiture Create'}) }}
+{{ include('header.php', {title: 'timbre Create'}) }}
 <body>
     <div class="container">
         
@@ -50,8 +50,18 @@
             </label>
 
 
+            <label> photo 
+                    <input type="file" name="photo" id="fileToUpload">
+                    <input type="hidden" name="submit" value="upload photo">
 
-            
+            </label>
+
+           
+
+
+
+
+     <!--        
         <label>utlisateur
                 <select name="user_id">
                     <option value="">Selectionner un Utilisateur</option>
@@ -60,7 +70,7 @@
                    {% endfor %}
                 </select>
 
-        </label>
+        </label> -->
 
 
          <!--    <label> photo 
@@ -72,9 +82,11 @@
             
             </label> -->
            
-            <input type="hidden" value="" class="btn">
+         <!--    <input type="hidden" value="" class="btn"> -->
             <input type="submit" value="save" class="btn">
         </form>
     </div>
 </body>
 </html>
+
+{{ include('footer.php', {title: 'Home'}) }} 
