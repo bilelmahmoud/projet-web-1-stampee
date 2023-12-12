@@ -190,7 +190,7 @@
                    <!--  <input type="submit" value="Miser" class="bouton-personnalise"> -->
 
                    <a href="{{path}}timbre/show/{{timbre.id}}" class="bouton-personnalise">afficher</a><br>
-                   <a href="{{path}}timbre/show/{{timbre.id}}" class="bouton-personnalise">modifier</a>
+                   <a href="{{path}}timbre/edit/{{timbre.id}}" class="bouton-personnalise">modifier</a>
                <!--     <td><a href="{{path}}voiture/show/{{voiture.id}}">{{voiture.marque}}</a></td> -->
                    
                 </div>

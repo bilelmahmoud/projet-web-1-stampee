@@ -4,7 +4,7 @@ class Timbre extends CRUD {
 
     protected $table = 'timbre';
     protected $primaryKey = 'id';
-    protected $fillable = ['id', 'nom', 'date_creation','couleur' , 'tirage', 'dimensions', 'certife', 'pays', 'condition_timbre_id', 'user_id'];
+    protected $fillable = ['nom', 'date_creation','couleur' , 'tirage', 'dimensions', 'certife', 'pays', 'condition_timbre_id', 'user_id'];
 
 
 

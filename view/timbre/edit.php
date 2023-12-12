@@ -3,26 +3,27 @@
     <div class="container">
         
 
-        <form class="form-membre" action="{{path}}timbre/store" method="post" enctype="multipart/form-data">
+        <form class="form-membre" action="{{path}}timbre/update" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="{{timbre.id}}">
    
             <label>nom
-                <input type="text" name="nom">
+                <input type="text" name="nom" value="{{timbre.nom}}">
             </label>
 
             <label>date de creation
-                <input type="date" name="date_creation">
+                <input type="date" name="date_creation" value="{{timbre.date_creation}}">
             </label>
 
             <label>couleur
-                <input type="text" name="couleur">
+                <input type="text" name="couleur" value="{{timbre.couleur}}">
             </label>
 
             <label>tirage
-                <input type="number" name="tirage">
+                <input type="number" name="tirage" value="{{timbre.tirage}}">
             </label>
             
             <label>dimensions
-                <input type="text" name="dimensions">
+                <input type="text" name="dimensions" value="{{timbre.dimensions}}">
             </label>
 
             <label>certifié</label>
@@ -33,7 +34,7 @@
             </label>
             
             <label>pays
-                <input type="text" name="pays">
+                <input type="text" name="pays" value="{{timbre.pays}}">
             </label>
 
 
@@ -50,10 +51,6 @@
             </label>
 
 
-            <label> photo 
-                    <input type="file" name="photo" id="fileToUpload">
-                    <input type="hidden" name="submit" value="upload photo">
-            </label>
 
 
 
