@@ -3,7 +3,7 @@
 <main>
 
 
-<aside>
+<!-- <aside>
 
 
     <form>
@@ -124,10 +124,10 @@
     </form>
 
 </aside>
-
+ -->
 <section class=" grid-container" data-js-produit>
         
-            <h1>Catalogue d'enchères</h1>
+            <h1>les timbres de {{session.username}}</h1>
 
      
             {% for timbre in timbres %}

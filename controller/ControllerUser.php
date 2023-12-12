@@ -1,6 +1,7 @@
 <?php
 RequirePage::model('CRUD');
 RequirePage::model('User');
+RequirePage::model('Timbre');
 RequirePage::model('Privilege');
 RequirePage::library('Validation');
 
@@ -71,6 +72,20 @@ class ControllerUser extends controller {
 
         RequirePage::url('login');
     }
+
+    public function destroy(){
+       /*  print_r($_POST);
+        die(); */
+        $user = new User;
+          
+        $timbre = new Timbre;
+        $timbre->deleteByUserId($_POST['id']); 
+       
+        $update = $user->delete($_POST['id']);
+        
+        RequirePage::url('user/index');
+    }
+
 
 
 }

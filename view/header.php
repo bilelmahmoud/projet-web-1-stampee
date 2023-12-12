@@ -39,7 +39,7 @@
                 <!-- <li><a href="{{path}}user/create">Inscription</a></li> -->
            <!--      <li><a href="{{path}}login">Login</a></li> -->
                 <li><a href="{{path}}timbre/create">Add timbre</a></li>
-             <!--    <li><a href="{{path}}user">Users</a></li> -->
+                <li><a href="{{path}}user">Membres</a></li>
              <!--    <li><a href="{{path}}login/logout">Logout</a></li>
          -->
                 <li role="menuitem" aria-label="Menu index" aria-haspopup="false" class="drap">

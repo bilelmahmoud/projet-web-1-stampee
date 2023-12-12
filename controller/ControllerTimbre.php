@@ -144,30 +144,12 @@ class ControllerTimbre extends controller {
     public function destroy(){
         $timbre = new Timbre;
         $image = new Image;
-
-
         $image->deleteByTimbreId($_POST['id']);
-
-
         $timbre->delete($_POST['id']);
-
         RequirePage::url('timbre/index');
     }
 
-        /* public function destroy() {
-            $timbre = new Timbre;
-            $timbre_id = $_POST['id'];
-
-            // Supprimer manuellement les images associées
-            $image = new Image;
-            $image->deleteByTimbreId($timbre_id);
-
-            // Ensuite, supprimer le timbre
-            $timbre->delete($timbre_id);
-
-            // Rediriger vers la page d'index des timbres
-            RequirePage::url('timbre/index');
-        } */
+       
 }
 
 ?>

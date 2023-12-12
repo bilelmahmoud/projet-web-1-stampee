@@ -1,17 +1,25 @@
-{{ include('header.php', {title: 'User List'}) }}
+{{ include('header.php', {title: 'membre List'}) }}
 <body>
     <div class="container">
-        <h1>Users</h1>
+       
         <table>
             <tr>
                 <th>Username</th>
                 <th>Privilege</th>
+                <th>supprime user</th>
+
 
             </tr>
             {% for user in users %}
                 <tr>
                     <td>{{ user.username }}</a></td>
                     <td>{{ user.privilege }}</td>
+                    <td>
+                        <form action="{{path}}user/destroy" method="post">
+                            <input type="hidden" name="id" value="{{user.id}}">
+                            <input type="submit" value="supprimer">
+                        </form>
+                    </td>
 
                 </tr>
             {% endfor %}

@@ -55,6 +55,15 @@ class Timbre extends CRUD {
     }  
  */
 
+    public function deleteByUserId($user_id) {
+        $sql = "DELETE FROM timbre WHERE user_id = $user_id";
+        $stmt =  $this->query($sql);
+        $deleteTimbre = $stmt->fetchAll();
+        return $deleteTimbre ;
+
+     
+    }
+
 
     
     
