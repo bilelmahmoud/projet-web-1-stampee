@@ -4,6 +4,7 @@
         
 
         <form class="form-membre" action="{{path}}timbre/store" method="post" enctype="multipart/form-data">
+        <span class="text-danger">{{ errors | raw }}</span>
    
             <label>nom
                 <input type="text" name="nom">
@@ -51,10 +52,19 @@
 
 
             <label> photo 
-                    <input type="file" name="photo" id="fileToUpload">
+             
+                     <input type="file" name="photo"  id="fileToUpload">
+                    <!-- <input type="file" name="photos[]" id="photos" multiple> -->
                     <input type="hidden" name="submit" value="upload photo">
 
             </label>
+
+            <!-- <label for="photo1">Photo 1</label>
+<input type="file" name="photos[]" id="photo1">
+
+<label for="photo2">Photo 2</label>
+<input type="file" name="photos[]" id="photo2"> -->
+
 
            
 

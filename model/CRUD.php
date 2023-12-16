@@ -6,10 +6,10 @@ abstract class CRUD extends PDO {
         parent::__construct('mysql:host=localhost; dbname=projet-stampee; port=3306; charset=utf8', 'root', '');
     }  
 
-    /*   public function __construct(){
-    parent::__construct('mysql:host=localhost; dbname=e2395390; port=3306; charset=utf8', 'e2395390', 'bvyB6iQewU3zEcjA4Jm4');
-    }   
- */
+    //   public function __construct(){
+    // parent::__construct('mysql:host=localhost; dbname=e2395390; port=3306; charset=utf8', 'e2395390', 'bvyB6iQewU3zEcjA4Jm4');
+    // }   
+
     public function select($field='id', $order='ASC'){
         $sql="SELECT * FROM $this->table ORDER BY $field $order";
         $stmt = $this->query($sql);
@@ -74,7 +74,9 @@ abstract class CRUD extends PDO {
             $stmt->bindValue(":$key", $value);
         }
         if($stmt->execute()){
-            return true;
+
+            
+            return $data["id"];
         }else{
             return $stmt->errorInfo();
         }

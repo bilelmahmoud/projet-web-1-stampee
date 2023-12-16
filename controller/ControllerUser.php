@@ -7,13 +7,7 @@ RequirePage::library('Validation');
 
 class ControllerUser extends controller {
 
-   /*  public function __construct(){
-        CheckSession::sessionAuth();
-        if($_SESSION['privilege'] != 1) {
-            RequirePage::url('login');
-            exit();
-        }
-    } */
+ 
 
 
     public function index(){
@@ -31,14 +25,11 @@ class ControllerUser extends controller {
     }
 
     public function create(){
-      /*   if(isset($_SESSION['fingerPrint']) && $_SESSION['fingerPrint']== md5($_SERVER['HTTP_USER_AGENT'].$_SERVER['REMOTE_ADDR'])){ */
+    
             $privilege = new Privilege;
             $select = $privilege->select('privilege');
             return Twig::render('user/create.php', ['privileges' => $select]);
-        /* }else{
-            echo "error";
-        } */
-
+      
     }
 
     public function store(){

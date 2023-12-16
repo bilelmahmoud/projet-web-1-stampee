@@ -76,6 +76,10 @@
    
 }
 
+.info-description > p > span {
+   font-weight: 600;
+}
+
 .info-enchere > p {
    padding: var(--espace-xs) ;
 

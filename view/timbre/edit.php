@@ -26,56 +26,37 @@
                 <input type="text" name="dimensions" value="{{timbre.dimensions}}">
             </label>
 
-            <label>certifié</label>
-                    <select name="certifie">
-                        <option value="1">Oui</option>
-                        <option value="0">Non</option>
+            <label for="certifie">Certifié</label>
+            <select name="certifie" id="certifie">
+                <option value="1" {% if timbre.certifie == 1 %}selected{% endif %}>Oui</option>
+                <option value="0" {% if timbre.certifie == 0 %}selected{% endif %}>Non</option>
+            </select>
+
+            <label for="pays">Pays</label>
+            <input type="text" name="pays" id="pays" value="{{timbre.pays}}">
+                   
+            <label for="condition_timbre_id">Condition
+                    <select name="condition_timbre_id" id="condition_timbre_id">
+                        <option value="">Sélectionner une condition</option>
+                        {% for condition in conditions %}
+                            <option value="{{ condition.id }}" {% if condition.id == timbre.condition_timbre_id %}selected{% endif %}>
+                                {{ condition.nom }}
+                            </option>
+                        {% endfor %}
                     </select>
-            </label>
-            
-            <label>pays
-                <input type="text" name="pays" value="{{timbre.pays}}">
-            </label>
-
-
-
-            <label>condition
-                <select name="condition_timbre_id">
-                    <option value="">Selectionner une condition</option>
-                   {%  for condition in conditions %}
-                        <option value="{{ condition.id }}"> {{ condition.id }} {{ condition.nom }}</option>
-                   {% endfor %}
-                </select>
-                
 
             </label>
 
-
-
-
-
-     <!--        
-        <label>utlisateur
-                <select name="user_id">
-                    <option value="">Selectionner un Utilisateur</option>
-                   {%  for user in users %}
-                        <option value="{{user.id }}"> {{ uuser.id}} {{ user.username }}</option>
-                   {% endfor %}
-                </select>
-
-        </label> -->
-
-
-         <!--    <label> photo 
+            <label> photo 
 
          
             <input type="file" name="photo" id="fileToUpload">
-            <input type="hidden" name="submit" value="upload photo">
+            <!-- <input type="hidden" name="nom" value="upload photo"> -->
             
-            
-            </label> -->
-           
-         <!--    <input type="hidden" value="" class="btn"> -->
+             
+            </label>   
+
+          
             <input type="submit" value="save" class="btn">
         </form>
     </div>

@@ -1,4 +1,4 @@
-{{ include('header.php', {title: 'Voiture Edit'}) }}
+{{ include('header.php', {title: 'timbre show'}) }}
 
 <!-- body>
     <div class="container">
@@ -40,8 +40,8 @@
 
             <div class="info-enchere">
                 <p>{{timbre.nom}}</p>
-                <p>{{timbre.date_creation}} </p>
-                <p>{{dimensions}}</p>
+                <p>{{timbre.date_creation}}</p>
+                
                   
                
                
@@ -50,27 +50,32 @@
 
             <div class="info-description">
 
-                <p>{{timbre.couleur}}</p>
-                <p>{{condition.nom}}</p>
+               
+                <p> couleur : <span>{{timbre.couleur}}</span></p>
+                <p> condition : <span>{{condition.nom}}</span></p>
+                <p> pays : <span>{{timbre.pays}}</span></p>
+                <p> tirage : <span>{{timbre.tirage}}</span></p>
+                <p> dimensions : <span>{{timbre.dimensions}}</span></p>
+               
              
              
             </div>
 
             <div class="btn">
 
-                <div>Placer votre enchère</div>
+                <div>mettre en vente</div>
                 
                 
-                <i class="fa-solid fa-hand-holding-dollar"></i>
+                <!-- <i class="fa-solid fa-hand-holding-dollar"></i> -->
 
     
             </div>
 
 
             <div class="info-mise-enchere">
-                <p>Prix de départ : 399$  </p>
-                <p>Nombre d'enchères placées : 0 </p>
-                <p>temps restant <span><i class="fa-regular fa-clock icone"> :</i>  21h 30 mn </span></p>
+              
+
+              <!--   <p>temps restant <span><i class="fa-regular fa-clock icone"> :</i>  21h 30 mn </span></p> -->
 
                 <div>
                         <form   action="{{path}}timbre/destroy" method="post">

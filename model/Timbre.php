@@ -4,7 +4,7 @@ class Timbre extends CRUD {
 
     protected $table = 'timbre';
     protected $primaryKey = 'id';
-    protected $fillable = ['nom', 'date_creation','couleur' , 'tirage', 'dimensions', 'certife', 'pays', 'condition_timbre_id', 'user_id'];
+    protected $fillable = ['nom', 'date_creation','couleur' , 'tirage', 'dimensions', 'certife', 'pays', 'condition_timbre_id', 'user_id','image_id'];
 
 
 
@@ -38,7 +38,7 @@ class Timbre extends CRUD {
     }
 
     public function selectWithImageAndCondition($id) {
-        $sql = "SELECT timbre.*, image.nom AS image_nom, condition_timbre.nom AS condition_nom FROM timbre
+        $sql = "SELECT timbre.*,image.id AS image_id, image.nom AS image_nom, condition_timbre.nom AS condition_nom FROM timbre
             LEFT JOIN image ON timbre.id = image.timbre_id
             LEFT JOIN condition_timbre ON timbre.condition_timbre_id = condition_timbre.id
             WHERE timbre.id = $id";

@@ -94,3 +94,11 @@ tr:nth-child(even) {
 tr:nth-child(odd) {
   background-color: #ffffff;
 }
+
+.text-danger{
+  color: #d63a3a;
+  margin-bottom: 20px;
+  display: inline
+
+  
+}
