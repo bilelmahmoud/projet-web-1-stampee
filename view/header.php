@@ -21,7 +21,9 @@
                         {% else %}
                         <li class="confirme-user">{{session.username }}</li>
                         <li><a href="{{path}}timbre/create">Add timbre</a></li>
+                        <li><a href="{{path}}Enchere/create">Add enchere</a></li>
                         <li><a href="{{path}}timbre/index">Mes timbres</a></li>
+                        <li><a href="{{path}}Enchere/index">Mes encheres</a></li>
                       
                        
                         
@@ -46,7 +48,7 @@
                   <img class="logo" src="{{path}}assets/img/logo/logo-timbre1.jpg" alt="logo de mon site ">
                 </li>
                 <li><a href="{{path}}">Accueil</a></li>
-                <li><a href="{{path}}">Categorie</a></li>
+                <li><a href="{{path}}Categorie/index">Categorie</a></li>
                 <li><a href="{{path}}">produit</a></li>
           
               

@@ -46,6 +46,9 @@ class Timbre extends CRUD {
             $timbreConditionImage = $stmt->fetchAll();
             return  $timbreConditionImage ;
     }
+
+
+    
     /* public function selectUser(){
         $sql = "SELECT   timbre.*, user.username from $this->table
          INNER JOIN user ON utilisateur_id = user.id";
@@ -65,8 +68,59 @@ class Timbre extends CRUD {
     }
 
 
+    public function selectAllWithImageAndCondition() {
+        $sql = "SELECT timbre.*, image.nom AS image_nom, condition_timbre.nom AS condition_nom 
+                FROM timbre
+                LEFT JOIN image ON timbre.id = image.timbre_id
+                LEFT JOIN condition_timbre ON timbre.condition_timbre_id = condition_timbre.id";
+        
+        $stmt = $this->query($sql);
+        $timbreConditionImage = $stmt->fetchAll();
+        return $timbreConditionImage;
+
+
     
+    }
+
+
+    public function updateByTimbeId($timbre_id, $data) {
+        // Créez la chaîne de mise à jour en fonction des données fournies dans le tableau $data
+        $updateString = '';
+        foreach ($data as $key => $value) {
+            $updateString .= "$key = '$value', ";
+        }
+        // Supprimez la virgule et l'espace supplémentaire à la fin de la chaîne
+        $updateString = rtrim($updateString, ', ');
     
+        // Utilisez une requête préparée pour éviter les injections SQL
+        $sql = "UPDATE timbre SET $updateString WHERE id = :id";
+        $stmt = $this->prepare($sql);
+        
+        // Liez le paramètre :timbre_id
+        $stmt->bindParam(':id', $timbre_id, PDO::PARAM_INT);
+    
+        // Exécutez la requête
+        $stmt->execute();
+    
+        // Retournez le résultat si nécessaire
+        return $stmt->fetchAll();
+    }
+
+/* 
+ public function selectAllWithImageAndCondition() {
+    $sql = "SELECT enchere.*, timbre.*, image.nom AS image_nom, condition_timbre.nom AS condition_nom 
+            FROM enchere
+            LEFT JOIN mise ON enchere.id = mise.enchere_id
+            LEFT JOIN timbre ON mise.timbre_id = timbre.id
+            LEFT JOIN image ON timbre.id = image.timbre_id
+            LEFT JOIN condition_timbre ON timbre.condition_timbre_id = condition_timbre.id";
+
+    $stmt = $this->query($sql);
+    $enchereTimbreConditionImage = $stmt->fetchAll();
+    return $enchereTimbreConditionImage;
+}
+ */
+
 }
 
 ?>

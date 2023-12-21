@@ -1,4 +1,5 @@
-{{ include('header.php', {title: 'Liste des timbres'}) }}
+{{ include('header.php', {title: 'Catalogue'}) }}
+
 <body>
 <main>
 
@@ -130,35 +131,58 @@
           <!--   <h1>les timbres de {{session.username}}</h1> -->
 
      
-            {% for timbre in timbres %}
+            {% for enchere in encheres %}
+            {% set timbre = timbres[loop.index0] %}
                   <article class="aritcle-1">
+                    
 
                 <div class="infos-image">
-                <img src="{{ path }}uploads/{{ timbre.image_nom }}" alt="Image du timbre">
+                <img src="{{ path }}uploads/{{timbre.image_nom}}" alt="Image du timbre">
                 </div>
 
                 <div class="infos-secondaires">
                   
                    
-                    <h2 class="titre-timbre">{{timbre.nom}}</h2>
+                    <!-- <h2 class="titre-timbre">{{timbre.nom}}</h2> -->
                     <div class="infos-secondaires-box">
-                    <p>date</p>
-                    <p> <span class="info-span">{{timbre.date_creation}}</span></p>
+                    <p>date_debut</p>
+                    <p> <span class="info-span">{{enchere.date_debut}}</span></p>
                     </div>
 
                     <div class="infos-secondaires-box"> 
-                    <p>couleur</p>
-                    <p> <span class="info-span">{{timbre.couleur}}</span></p>
+                    <p>date_fin</p>
+                    <p> <span class="info-span">{{enchere.date_fin}}</span></p>
                     </div>
 
                     <div class="infos-secondaires-box"> 
-                    <p>dimensions</p>
-                    <p><span class="info-span" >{{timbre.dimensions}}</span></p>
+                    <p>prix</p>
+                    <p><span class="info-span">{{enchere.prix }} $ </span></p>
+
+                    
                     </div>
+
+
+                 
+
+                    <div>
+
+
+                            <input type="submit" value="Miser" class="bouton-personnalise">
+
+                    </div>
+
+                    <div>
+                        <form   action="{{path}}enchere/destroy" method="post">
+                            <input type="hidden" name="id" value="{{enchere.id}}">
+                            <input type="submit" value="supprimer">
+                        </form>
+                    </div>
+              
+
 
                  
                    
-                    <p>
+                   <!--  <p>
                         {% if timbre.certifie == 1 %}
                         <div class="infos-secondaires-box">
                             <p>certifié </p>
@@ -187,13 +211,13 @@
                 <div class='btn-supp-modif'>
 
 
-                   <!--  <input type="submit" value="Miser" class="bouton-personnalise"> -->
+                     <input type="submit" value="Miser" class="bouton-personnalise"> -->
 
-                   <a href="{{path}}timbre/show/{{timbre.id}}" class="bouton-personnalise">afficher</a><br>
-                   <a href="{{path}}timbre/edit/{{timbre.id}}" class="bouton-personnalise">modifier</a>
+                   <!-- <a href="{{path}}timbre/show/{{timbre.id}}" class="bouton-personnalise">afficher</a><br>
+                   <a href="{{path}}timbre/edit/{{timbre.id}}" class="bouton-personnalise">modifier</a> -->
                <!--     <td><a href="{{path}}voiture/show/{{voiture.id}}">{{voiture.marque}}</a></td> -->
                    
-                </div>
+                <!-- </div> --> 
 
             
        

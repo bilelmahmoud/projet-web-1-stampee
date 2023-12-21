@@ -1,9 +1,3 @@
-{{ include('header.php', {title: 'timbre show'}) }}
-
-
-</html>
-
-
 <main class="main-produit">
         
 
@@ -11,7 +5,7 @@
 
             <div class="parent-img" >
 
-            <img src="{{ path }}uploads/{{ timbre.image_nom }}" alt="Image du timbre">
+                <img class="image-produit" src="./assets/img/timbre5.jpg" alt="timbre">
 
             </div>
 
@@ -26,48 +20,39 @@
             
 
             <div class="info-enchere">
-                <p>{{timbre.nom}}</p>
-                <p>{{timbre.date_creation}}</p>
-                                              
+                <p>Canada</p>
+                <p>Scott Canada </p>
+                <p>399 $</p>
+                  
+               
+               
             </div>
 
 
             <div class="info-description">
 
-               
-                <p> couleur : <span>{{timbre.couleur}}</span></p>
-                <p> condition : <span>{{condition.nom}}</span></p>
-                <p> pays : <span>{{timbre.pays}}</span></p>
-                <p> tirage : <span>{{timbre.tirage}}</span></p>
-                <p> dimensions : <span>{{timbre.dimensions}}</span></p>
-               
+                <p>"Ce timbre rare et historique, d'une qualité exceptionnelle, est une pièce unique convoitée par les collectionneurs du monde entier. Son histoire captivante en fait un objet d'une grande valeur pour toute collection."</p>
              
-             
+                
+
+
             </div>
 
             <div class="btn">
 
-              
-                <a href="{{path}}Enchere/create" class="bouton-personnalise">mettre en vente</a><br>
+                <div>Placer votre enchère</div>
                 
                 
-                <!-- <i class="fa-solid fa-hand-holding-dollar"></i> -->
+                <i class="fa-solid fa-hand-holding-dollar"></i>
 
     
             </div>
 
 
             <div class="info-mise-enchere">
-              
-
-              <!--   <p>temps restant <span><i class="fa-regular fa-clock icone"> :</i>  21h 30 mn </span></p> -->
-
-                <div>
-                        <form   action="{{path}}timbre/destroy" method="post">
-                            <input type="hidden" name="id" value="{{timbre.id}}">
-                            <input type="submit" value="supprimer">
-                        </form>
-                </div>
+                <p>Prix de départ : 399$  </p>
+                <p>Nombre d'enchères placées : 0 </p>
+                <p>temps restant <span><i class="fa-regular fa-clock icone"> :</i>  21h 30 mn </span></p>
               
                  
                 
@@ -78,11 +63,7 @@
 
         </div>
 
-       
-
-        
-
-<!--            
+           
         <div class="produit-similaire">
 
             <h1>Enchères similaires</h1>
@@ -195,32 +176,8 @@
             </article>
 
 
-        </div>  -->
+        </div> 
 
 
 
     </main>
-    <footer>
-        <div>
-            <img class="logo" src="./assets/img/logo/logo-timbre1.jpg" alt="logo de mon site ">
-
-        </div>
-         
-        <div class="contact">
-        
-            <p>info@site-detimbres.com</p>
-            <p><span><i class="fa-solid fa-phone"></i></span> 514 999-7755 </p> 
-        </div>
-
-        <div class="reseau-sociaux">
-          
-        <span><i class="fa-brands fa-instagram fa-2xl"></i></span>
-        <span><i class="fa-brands fa-facebook fa-2xl"></i></span>
-        <span><i class="fa-brands fa-x-twitter fa-2xl"></i></span>
-
-        </div>
-
-    </footer>
-</body>
-</html>
-
