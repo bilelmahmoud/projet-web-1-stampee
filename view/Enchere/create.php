@@ -8,7 +8,10 @@
             <select name="timbre_id">
                 <option value="">Sélectionner un timbre</option>
                 {% for timbre in timbres %}
+
+                {% if timbre.user_id == session.user_id %}
                     <option value="{{ timbre.id }}">{{ timbre.nom }}</option>
+                    {% endif %}
                 {% endfor %}
             </select>
             </label>
@@ -26,9 +29,8 @@
             </label>
 
             <label>Couleur de la bordure
-                <input type="checkbox" name="coeur_lord" value="1"> <!-- valeur 1 pour true, 0 pour false -->
+                <input type="checkbox" name="coeur_lord" value="1"> 
             </label>
-
             <!-- Ajoutez d'autres champs selon vos besoins -->
 
             <input type="submit" value="Save" class="btn">

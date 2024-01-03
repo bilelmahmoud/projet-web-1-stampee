@@ -128,16 +128,23 @@
  -->
 <section class=" grid-container" data-js-produit>
         
-          <!--   <h1>les timbres de {{session.username}}</h1> -->
+            <h1>les timbres de {{session.username}}</h1>
+
+
 
      
             {% for enchere in encheres %}
-            {% set timbre = timbres[loop.index0] %}
+
+            
+         
+          
+            {% if enchere.user_id == session.user_id %}
+            
                   <article class="aritcle-1">
                     
 
                 <div class="infos-image">
-                <img src="{{ path }}uploads/{{timbre.image_nom}}" alt="Image du timbre">
+                <img src="{{ path }}uploads/{{enchere.image_nom}}" alt="Image du timbre">
                 </div>
 
                 <div class="infos-secondaires">
@@ -168,6 +175,7 @@
 
 
                             <input type="submit" value="Miser" class="bouton-personnalise">
+                            <!-- <a href="{{path}}Enchere/show" class="bouton-personnalise">Miser</a><br> -->
 
                     </div>
 
@@ -222,7 +230,7 @@
             
        
             </article>
-           
+            {% endif %}
             {% endfor %}
 </section> 
 </main>      

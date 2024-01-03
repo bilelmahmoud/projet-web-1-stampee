@@ -64,11 +64,8 @@ class ControllerTimbre extends controller {
             $_POST['user_id'] = $user_id;
             $timbre = new Timbre;
             $insert_timbre = $timbre->insert($_POST);
-           /*  echo '<pre>';
-            print_r($_FILES);
-            echo '</pre>';
-            die();
-         */
+        
+        
 
             if ($insert_timbre) {
             
@@ -104,17 +101,14 @@ class ControllerTimbre extends controller {
         }
      public function show($id){
 
-        $timbre = new Timbre;
-        $selectConditionImage = $timbre->selectWithImageAndCondition($id);
+         $timbre = new Timbre;
+         $selectConditionImage = $timbre->selectWithImageAndCondition($id);
 
          $condition = new Condition;
          $selectCondition = $condition->selectId($selectConditionImage[0]['condition_timbre_id']);
-     /*    echo "<pre>";
-         print_r($selectCondition);
-         echo "</pre>";
-        die(); */
+  
         return Twig::render('timbre/show.php', ['timbre'=>$selectConditionImage[0],'condition'=>$selectCondition]);
-      /*   return Twig::render('timbre/show.php'); */
+    
     }
 
      public function edit($id){
@@ -122,13 +116,7 @@ class ControllerTimbre extends controller {
         $selectConditionImage = $timbre->selectWithImageAndCondition($id);
         $condition = new Condition;
         $selectCondition = $condition->select();
-       /*  $selectId = $timbre->selectId($id); */
-
-
-     /*    echo "<pre>";
-        print_r($selectConditionImage);
-        echo "</pre>";
-        die(); */
+     
        
         return Twig::render('timbre/edit.php', ['timbre'=>$selectConditionImage[0],'conditions'=>$selectCondition]);
     }
@@ -153,20 +141,20 @@ class ControllerTimbre extends controller {
                     'timbre_id' => $update
                 ];
     
-                // Supprime l'ancienne image
+              
                 $image->deleteByTimbreId($update);
     
-                // Insère la nouvelle image
+            
                 $insert_image = $image->insert($image_data);
     
                 if ($insert_image && move_uploaded_file($_FILES['photo']['tmp_name'], $target_file)) {
-                    // Traitement réussi
+                  
                 } else {
-                    // Gestion de l'erreur
+                  
                     RequirePage::url('timbre/index');
                 }
             } else {
-                // Gestion de l'erreur (aucun fichier photo)
+              
                 RequirePage::url('timbre/index');
             }
         }

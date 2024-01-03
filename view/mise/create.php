@@ -36,26 +36,13 @@
             <p>dimensions : <span>{{ enchere.dimensions }}</span></p>
         </div>
 
-       <!--  <div class="btn">
+        <div class="btn">
             <a href="{{ path }}mise/create/{{ enchere.id }}">Placer votre enchère</a><br>
             
-           
+            <!-- <div>Placer votre enchère</div> -->
             <i class="fa-solid fa-hand-holding-dollar"></i>
 
         </div>
- -->
-
-
-            <div class="btn">
-                <form action="{{ path }}enchere/placerMise/{{ enchere.id }}" method="post">
-                    <!-- Ajoutez les champs nécessaires pour votre formulaire de mise -->
-                    <input type="hidden" name="enchere_id" value="{{ enchere.id }}">
-                    <input type="hidden" name="prix" value="{{ enchere.prix }}">
-                    <input type="text" name="mise_prix" id="mise_prix" placeholder="0">
-                    <input type="submit" value="Placer votre enchère">
-                </form>
-            </div>
-
 
         <div class="info-mise-enchere">
                 <p>Prix de départ : {{enchere.prix }} $  </p>

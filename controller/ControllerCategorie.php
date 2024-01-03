@@ -12,17 +12,11 @@ class ControllerCategorie extends controller {
         $enchere = new Enchere;
         $timbre = new Timbre;
         
-        // Utilisez la méthode pour récupérer tous les timbres avec leurs images et conditions
-        $timbres =  $timbre->selectAllWithImageAndCondition();;
-
-        // Utilisez la méthode pour récupérer toutes les enchères
-        $encheres = $enchere->select();
-        echo '<pre>';
-        print_r($timbres);
-        // print_r($encheres);
-        echo '</pre>';
-        return Twig::render('Categorie/index.php', ['encheres' => $encheres,'timbres' => $timbres]);
+     
+        $encheres = $enchere->afficheEnchere();
+      
+        return Twig::render('Categorie/index.php', ['encheres' => $encheres]);
     }
 
-    // ... autres méthodes
+    
 }

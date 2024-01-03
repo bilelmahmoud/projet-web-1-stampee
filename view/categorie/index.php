@@ -132,39 +132,38 @@
 
      
             {% for enchere in encheres %}
-            {% set timbre = timbres[loop.index0] %}
+        
                   <article class="aritcle-1">
                     
 
                 <div class="infos-image">
-                <img src="{{ path }}uploads/{{timbre.image_nom}}" alt="Image du timbre">
+                <img src="{{ path }}uploads/{{enchere.image_nom}}" alt="Image du timbre">
                 </div>
 
                 <div class="infos-secondaires">
+                    
                   
+                 <div class="infos-secondaires-box"> 
+                  <p>nom du timbre</p>
+                 <p><span class="info-span">{{ enchere.nom }}</span></p>
+                 </div>
                    
-                    <!-- <h2 class="titre-timbre">{{timbre.nom}}</h2> -->
-                    <div class="infos-secondaires-box">
-                    <p>date_debut</p>
-                    <p> <span class="info-span">{{enchere.date_debut}}</span></p>
-                    </div>
-
-                    <div class="infos-secondaires-box"> 
-                    <p>date_fin</p>
-                    <p> <span class="info-span">{{enchere.date_fin}}</span></p>
-                    </div>
+                  
 
                     <div class="infos-secondaires-box"> 
                     <p>prix</p>
                     <p><span class="info-span">{{enchere.prix }} $ </span></p>
-
-                    
                     </div>
 
 
                     <div class="infos-secondaires-box"> 
-                    <p>pays </p>
-                    <p><span class="info-span">{{timbre.pays}}</span></p>
+                    <p>pays</p>
+                    <p><span class="info-span">{{enchere.pays}}</span></p>
+                    </div>
+
+                    <div class="infos-secondaires-box"> 
+                    <p>condition </p>
+                    <p><span class="info-span">{{enchere.condition_nom }}</span></p>
                     </div>
                     
 
@@ -174,7 +173,8 @@
                     <div>
 
 
-                            <input type="submit" value="Miser" class="bouton-personnalise">
+                            <!-- <input type="submit" value="Miser" class="bouton-personnalise"> -->
+                           <a href="{{path}}Enchere/show/{{enchere.id}}" class="bouton-personnalise">Miser</a><br>
 
                     </div>
 

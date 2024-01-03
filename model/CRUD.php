@@ -82,6 +82,23 @@ abstract class CRUD extends PDO {
         }
     }
 
+    
+    public function updateMise($enchere_id, $nouveau_prix) {
+        $sql = "UPDATE enchere SET prix = :nouveau_prix WHERE enchere_id = :enchere_id";
+    
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':nouveau_prix', $nouveau_prix, PDO::PARAM_STR);
+        $stmt->bindParam(':enchere_id', $enchere_id, PDO::PARAM_INT);
+    
+        try {
+            $stmt->execute();
+            // Autres opérations si nécessaire
+        } catch (PDOException $e) {
+            // Gestion des erreurs
+            echo "Erreur lors de la mise à jour : " . $e->getMessage();
+        }
+    }
+
 
 
 
