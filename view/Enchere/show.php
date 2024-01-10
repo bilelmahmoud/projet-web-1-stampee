@@ -13,7 +13,15 @@
 
 
     <div class="mise-produit">
-        <span class="fa fa-heart coeur icone-favoris"></span>
+        
+        <!-- <span class="fa fa-heart coeur icone-favoris" data-js-favoris></span> -->
+        </script>
+
+<!-- Inclure l'ID de l'enchère dans l'attribut data-enchere-id -->
+<form id="favori-form" action="{{ path }}enchere/toggleFavoris/{{ enchere.id }}" method="post" data-enchere-id="{{ enchere.id }}">
+    <input type="hidden" name="enchere_id" value="{{ enchere.id }}" />
+  <button type="submit" class="fa fa-heart coeur icone-favoris" data-enchere-id="{{ enchere.id }}"></button>
+</form>
         
         <div class="info-enchere">
 
@@ -81,4 +89,3 @@
 </main>
 {{ include('footer.php', {title: 'Home'}) }}
 
-   

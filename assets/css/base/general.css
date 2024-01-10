@@ -166,8 +166,13 @@ padding: var(--espace-xxs);
     .drapeau{
         display: none;
     }
+    .icone-favoris.favori::before {
+        color: red; /* ou la couleur que vous préférez */
+    }
 
-   
+    .favori{
+        color: red;
+    }
     
     
       

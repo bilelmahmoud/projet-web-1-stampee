@@ -1,9 +1,12 @@
 <?php
 
+
+
 RequirePage::model('CRUD');
 RequirePage::model('Enchere');
 RequirePage::model('Mise');
 RequirePage::model('Image');
+RequirePage::model('Favoris');
 RequirePage::model('Timbre');
 RequirePage::model('Condition');
 RequirePage::library('Validation');
@@ -78,63 +81,7 @@ RequirePage::library('Validation');
 
     }
     
-    // public function placerMise() {
-    //     // Assurez-vous que l'utilisateur est connecté
-    //     if (!isset($_SESSION['user_id'])) {
-    //         RequirePage::url('login');
-    //     }
-    
-    //     // Récupérez l'ID de l'utilisateur connecté
-    //     $user_id = $_SESSION['user_id'];
-    
-    //     // Récupérez l'ID de l'enchère à partir du formulaire
-    //     $enchere_id = $_POST['enchere_id'];
 
-    //     $mise = new Mise;
-    
-    //     // Vérifiez si l'utilisateur a déjà placé une mise pour cette enchère
-    //     $conditions = ['enchere_id' => $enchere_id, 'user_id' => $user_id];
-    //     $misesExistantes = $mise->find($conditions);
-    
-    //     if (!empty($misesExistantes)) {
-    //         // L'utilisateur a déjà placé une mise pour cette enchère
-    //         $errorMessage = 'Vous avez déjà placé une mise pour cette enchère.';
-    //         RequirePage::url('Enchere/show/' . $enchere_id, ['error' => $errorMessage]);
-    //     } else {
-    //         // L'utilisateur n'a pas encore placé de mise pour cette enchère, continuez avec l'insertion
-    //         // Récupérez le montant de la mise depuis le formulaire
-    //         $mise_prix = $_POST['mise_prix'];
-    
-    //         // Récupérez le dernier prix de l'enchère
-    //         $enchere = new Enchere;
-    //         $dernier_prix = $enchere->getDernierPrix($enchere_id);
-            
-    
-    //         // Vérifiez si la mise est supérieure au dernier prix
-    //         if ($mise_prix > $dernier_prix) {
-    //             // Enregistrez la mise dans la base de données
-    //             $mise->insert([
-    //                 'enchere_id' => $enchere_id,
-    //                 'user_id' => $user_id,
-    //                 'mise_date' => date('Y-m-d H:i:s'),
-    //                 'mise_prix' => $mise_prix
-    //             ]);
-
-        
-    
-    //             // Mettez à jour le prix de l'enchère dans la table Enchere avec le nouveau montant de la mise
-    //             // $enchere->update(['enchere_id' => $enchere_id, 'prix' => $mise_prix]);
-    //             $data = ['id' => $enchere_id, 'prix' => $mise_prix];
-    //             $enchere->update($data);
-    //             // Redirigez l'utilisateur vers la page de l'enchère après avoir placé la mise
-    //             RequirePage::url('Enchere/show/' . $enchere_id);
-    //         } else {
-    //             // Le montant de la mise n'est pas suffisant, redirigez l'utilisateur avec un message d'erreur
-    //             $errorMessage = 'Le montant de la mise doit être supérieur au dernier prix.';
-    //             RequirePage::url('Enchere/show/' . $enchere_id, ['error' => $errorMessage]);
-    //         }
-    //     }
-    // }
 
 
     public function placerMise() {
@@ -180,6 +127,82 @@ RequirePage::library('Validation');
             RequirePage::url('Enchere/show/' . $enchere_id, ['error' => $errorMessage]);
         }
     }
+
+       
+    public function toggleFavoris() {
+        // Assurez-vous que l'utilisateur est connecté
+        if (!isset($_SESSION['user_id'])) {
+            RequirePage::url('login');
+        }
+    
+        // Récupérez l'ID de l'utilisateur connecté
+        $user_id = $_SESSION['user_id'];
+    
+        // Récupérez l'ID de l'enchère à partir du formulaire
+        $enchere_id = $_POST['enchere_id'];
+    
+        // Récupérez le statut actuel de l'enchère dans les favoris de l'utilisateur
+        $favoris = new Favoris;
+        $conditions = ['user_id' => $user_id, 'enchere_id' => $enchere_id];
+        $enchereFavoris = $favoris->find($conditions);
+    
+        // Si l'enchère est déjà en favoris, supprimez-la
+        if (!empty($enchereFavoris)) {
+            $favoris->delete($enchereFavoris[0]['id']);
+            $message = 'Enchère retirée des favoris.';
+        } else {
+            // Sinon, ajoutez l'enchère aux favoris
+            $favoris->insert([
+                'user_id' => $user_id,
+                'enchere_id' => $enchere_id,
+                'statut' => 1, // Vous pouvez utiliser d'autres valeurs pour représenter différents statuts si nécessaire
+            ]);
+            $message = 'Enchère ajoutée aux favoris.';
+        }
+    
+        // Redirigez l'utilisateur vers la page de l'enchère avec un message de confirmation
+        RequirePage::url('Enchere/show/' . $enchere_id, ['message' => $message]);
+    }
+
+
+    // public function toggleFavoris() {
+    //     // Assurez-vous que l'utilisateur est connecté
+    //     if (!isset($_SESSION['user_id'])) {
+    //         header('Content-Type: application/json');
+    //         echo json_encode(['error' => 'Utilisateur non connecté.']);
+    //         exit;
+    //     }
+    
+    //     // Récupérez l'ID de l'utilisateur connecté
+    //     $user_id = $_SESSION['user_id'];
+    
+    //     // Récupérez l'ID de l'enchère à partir de la requête POST
+    //     $enchere_id = $_POST['enchere_id'];
+    
+    //     // Récupérez le statut actuel de l'enchère dans les favoris de l'utilisateur
+    //     $favoris = new Favoris;
+    //     $conditions = ['user_id' => $user_id, 'enchere_id' => $enchere_id];
+    //     $enchereFavoris = $favoris->find($conditions);
+    
+    //     // Si l'enchère est déjà en favoris, supprimez-la
+    //     if (!empty($enchereFavoris)) {
+    //         $favoris->delete($enchereFavoris[0]['id']);
+    //         $response = ['isFavori' => false, 'message' => 'Enchère retirée des favoris.'];
+    //     } else {
+    //         // Sinon, ajoutez l'enchère aux favoris
+    //         $favoris->insert([
+    //             'user_id' => $user_id,
+    //             'enchere_id' => $enchere_id,
+    //             'statut' => 1, // Vous pouvez utiliser d'autres valeurs pour représenter différents statuts si nécessaire
+    //         ]);
+    //         $response = ['isFavori' => true, 'message' => 'Enchère ajoutée aux favoris.'];
+    //     }
+    
+    //     // Envoyez une réponse JSON indiquant si l'enchère est maintenant en favori ou non
+    //     header('Content-Type: application/json');
+    //     echo json_encode($response);
+    //     exit;
+    // }
     
 }
     

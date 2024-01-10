@@ -28,6 +28,11 @@ class Mise extends CRUD {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function getMisesByUserId($user_id) {
+        $conditions = ['user_id' => $user_id];
+        return $this->find($conditions);
+    }
+
    
 
 }

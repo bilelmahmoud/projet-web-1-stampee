@@ -7,6 +7,48 @@
                 <title>{{ title }}</title>
                 <link rel="stylesheet" href="{{path}}assets/css/styles.css">
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+                <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var favoriButton = document.querySelector('.icone-favoris');
+
+        if (favoriButton) {
+            var enchereId = favoriButton.dataset.enchereId;
+            var isFavori = (getCookie('favori_' + enchereId) === 'true');
+
+            favoriButton.classList.toggle('favori', isFavori);
+            favoriButton.style.color = isFavori ? 'red' : '';
+
+            favoriButton.addEventListener('click', function (event) {
+                event.preventDefault();
+
+                isFavori = !isFavori;
+                favoriButton.classList.toggle('favori', isFavori);
+                favoriButton.style.color = isFavori ? 'red' : '';
+
+                setCookie('favori_' + enchereId, isFavori.toString(), 365 * 24 * 60 * 60);
+
+                document.getElementById('favori-form').submit();
+            });
+
+            function getCookie(name) {
+                var value = "; " + document.cookie;
+                var parts = value.split("; " + name + "=");
+                if (parts.length === 2) return parts.pop().split(";").shift();
+            }
+
+            function setCookie(name, value, seconds) {
+                var expires = "";
+                if (seconds) {
+                    var date = new Date();
+                    date.setTime(date.getTime() + (seconds * 1000));
+                    expires = "; expires=" + date.toUTCString();
+                }
+                document.cookie = name + "=" + value + expires + "; path=/";
+            }
+        }
+    });
+</script>
+              
                 
             </head>
             <header>
@@ -24,6 +66,8 @@
                         <li><a href="{{path}}Enchere/create">Add enchere</a></li>
                         <li><a href="{{path}}timbre/index">Mes timbres</a></li>
                         <li><a href="{{path}}Enchere/index">Mes encheres</a></li>
+                        <li><a href="{{path}}mise/index">Mes Mises</a></li>
+                        <li><a href="{{path}}favoris/index">Mes Favoris</a></li>
                       
                        
                         
