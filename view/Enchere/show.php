@@ -1,16 +1,16 @@
 
 {{ include('header.php', {title: 'Catalogue'}) }}
 <main class="main-produit">
-        
-{% for enchere in encheres %}
 
+{% for enchere in encheres %}
+   
     <div class="affiche-image">
         <div class="parent-img">
             <img src="{{ path }}uploads/{{ enchere.image_nom }}" alt="Image du timbre">
         </div>
     </div>
 
-
+    <h1>{{isFavori}}</h1>
 
     <div class="mise-produit">
         
@@ -18,10 +18,16 @@
         </script>
 
 <!-- Inclure l'ID de l'enchère dans l'attribut data-enchere-id -->
-<form id="favori-form" action="{{ path }}enchere/toggleFavoris/{{ enchere.id }}" method="post" data-enchere-id="{{ enchere.id }}">
-    <input type="hidden" name="enchere_id" value="{{ enchere.id }}" />
-  <button type="submit" class="fa fa-heart coeur icone-favoris" data-enchere-id="{{ enchere.id }}"></button>
-</form>
+{{ message }}
+{% for enchere in encheres %}
+    <form id="favori-form" action="{{ path }}enchere/toggleFavoris/{{ enchere.id }}" method="post" data-enchere-id="{{ enchere.id }}">
+        <input type="hidden" name="enchere_id" value="{{ enchere.id }}" />
+        <button type="submit" class="fa fa-heart coeur icone-favoris {% if enchere.isFavori %}favori{% endif %}"></button>
+    </form>
+    <!-- Autres détails de l'enchère -->
+{% endfor %}
+
+
         
         <div class="info-enchere">
 

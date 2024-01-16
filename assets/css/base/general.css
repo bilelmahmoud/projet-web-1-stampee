@@ -147,6 +147,10 @@ padding: var(--espace-xxs);
     text-align: center;
 }
 
+.favori {
+    color: red;
+}
+
 
 @media (max-width: 480px) {
 
@@ -166,13 +170,7 @@ padding: var(--espace-xxs);
     .drapeau{
         display: none;
     }
-    .icone-favoris.favori::before {
-        color: red; /* ou la couleur que vous préférez */
-    }
-
-    .favori{
-        color: red;
-    }
+  
     
     
       

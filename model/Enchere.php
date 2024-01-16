@@ -127,6 +127,26 @@ class Enchere extends CRUD {
         // Retournez directement la valeur du dernier prix
         return ($result && !empty($result)) ? $result['prix'] : 0;
     }
+
+    function recupererEncheres($condition) {
+     
+            $sql = "SELECT nom, condition FROM encheres WHERE condition = ?";
+            $stmt = $connexion->prepare($sql);
+            $stmt->execute([$condition]);
+    
+            // Récupérer les résultats de la requête
+            $encheres = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+            return $encheres;
+   
+    }
+   
+
+
+    
+
+   
+
    
     
 }

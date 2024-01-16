@@ -70,15 +70,21 @@ RequirePage::library('Validation');
     }
 
     public function show($id) {
-   
-     
         $enchere = new Enchere;
         $encheres = $enchere->afficheEnchereParId($id);
-      
-        
+        $message = isset($_SESSION['flash_message']) ? $_SESSION['flash_message'] : null;
     
-        return Twig::render('Enchere/show.php', ['encheres' => $encheres]);
-
+        // Récupérez le tableau de favoris depuis la session
+        $favoris = isset($_SESSION['favoris']) ? $_SESSION['favoris'] : [];
+    
+        // Utilisez ce tableau pour déterminer si chaque enchère est en favori
+        foreach ($encheres as &$enchere) {
+            $enchere['isFavori'] = in_array($enchere['id'], $favoris);
+        }
+    
+        // Ne supprimez pas les données de session ici si vous souhaitez qu'elles persistent
+    
+        return Twig::render('Enchere/show.php', ['encheres' => $encheres, 'message' => $message]);
     }
     
 
@@ -129,42 +135,58 @@ RequirePage::library('Validation');
     }
 
        
-    public function toggleFavoris() {
-        // Assurez-vous que l'utilisateur est connecté
-        if (!isset($_SESSION['user_id'])) {
-            RequirePage::url('login');
-        }
-    
-        // Récupérez l'ID de l'utilisateur connecté
-        $user_id = $_SESSION['user_id'];
-    
-        // Récupérez l'ID de l'enchère à partir du formulaire
-        $enchere_id = $_POST['enchere_id'];
-    
-        // Récupérez le statut actuel de l'enchère dans les favoris de l'utilisateur
-        $favoris = new Favoris;
-        $conditions = ['user_id' => $user_id, 'enchere_id' => $enchere_id];
-        $enchereFavoris = $favoris->find($conditions);
-    
-        // Si l'enchère est déjà en favoris, supprimez-la
-        if (!empty($enchereFavoris)) {
-            $favoris->delete($enchereFavoris[0]['id']);
-            $message = 'Enchère retirée des favoris.';
-        } else {
-            // Sinon, ajoutez l'enchère aux favoris
-            $favoris->insert([
-                'user_id' => $user_id,
-                'enchere_id' => $enchere_id,
-                'statut' => 1, // Vous pouvez utiliser d'autres valeurs pour représenter différents statuts si nécessaire
-            ]);
-            $message = 'Enchère ajoutée aux favoris.';
-        }
-    
-        // Redirigez l'utilisateur vers la page de l'enchère avec un message de confirmation
-        RequirePage::url('Enchere/show/' . $enchere_id, ['message' => $message]);
+  public function toggleFavoris() {
+    // Assurez-vous que l'utilisateur est connecté
+    if (!isset($_SESSION['user_id'])) {
+        RequirePage::url('login');
     }
 
+    // Récupérez l'ID de l'utilisateur connecté
+    $user_id = $_SESSION['user_id'];
 
+    // Récupérez l'ID de l'enchère à partir du formulaire
+    $enchere_id = $_POST['enchere_id'];
+
+    // Récupérez le statut actuel de l'enchère dans les favoris de l'utilisateur
+    $favoris = isset($_SESSION['favoris']) ? $_SESSION['favoris'] : [];
+
+    // Si l'enchère est déjà en favoris, supprimez-la
+    if (in_array($enchere_id, $favoris)) {
+        // Supprimez de la base de données
+        $favorisModel = new Favoris;
+        $favorisModel->deleteEnchereFavori($enchere_id, $user_id);
+
+        // Supprimez de la liste des favoris en session
+        $key = array_search($enchere_id, $favoris);
+        unset($favoris[$key]);
+
+        $message = 'Enchère retirée des favoris.';
+        $isFavori = false;
+    } else {
+        // Ajoutez à la base de données
+        $favorisModel = new Favoris;
+        $favorisModel->insert([
+            'user_id' => $user_id,
+            'enchere_id' => $enchere_id,
+            'statut' => 1,
+        ]);
+
+        // Ajoutez à la liste des favoris en session
+        $favoris[] = $enchere_id;
+
+        $message = 'Enchère ajoutée aux favoris.';
+        $isFavori = true;
+    }
+
+    // Mettez à jour le tableau de favoris dans la session
+    $_SESSION['favoris'] = $favoris;
+
+    $_SESSION['flash_message'] = $message;
+    $_SESSION['flash_isFavori'] = $isFavori;
+
+    // Redirigez l'utilisateur vers la page de l'enchère avec un message de confirmation
+    RequirePage::url('Enchere/show/' . $enchere_id, ['message' => $message, 'isFavori' => $isFavori]);
+}
     // public function toggleFavoris() {
     //     // Assurez-vous que l'utilisateur est connecté
     //     if (!isset($_SESSION['user_id'])) {

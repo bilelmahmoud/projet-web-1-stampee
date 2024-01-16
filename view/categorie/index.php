@@ -1,4 +1,6 @@
 {{ include('header.php', {title: 'Catalogue'}) }}
+ <!-- <script type="module" src="{{path}}assets/js/main.js"></script> -->
+              
 
 <body>
 <main>
@@ -44,7 +46,7 @@
 
 
 
-        <div>
+        <div data-js-condition>
 
             <h3>condition</h3>
 
@@ -73,10 +75,35 @@
 
         </div>
 
+        <div data-js-prix>
+    <h3>prix</h3>
+
+    <fieldset>
+        <label for="superbe">0 a 200$</label>
+        <input type="checkbox" name="prix" value="200" id="superbe">
+    </fieldset>
+
+    <fieldset>
+        <label for="bonne">200$ - 400$</label>
+        <input type="checkbox" name="prix" value="400" id="bonne">
+    </fieldset>
+
+    <fieldset>
+        <label for="endommage">400$ - 600$</label>
+        <input type="checkbox" name="prix" value="600" id="endommage">
+    </fieldset>
+
+    <fieldset>
+        <label for="mauvaise">800$ et plus</label>
+        <input type="checkbox" name="prix" value="800" id="mauvaise">
+    </fieldset>
+</div>
 
 
 
-        <div>
+
+
+        <!-- <div>
 
             <h3>Prix </h3>
 
@@ -87,7 +114,7 @@
                 <span>800 $</span>
             </fieldset>
 
-        </div>
+        </div> -->
 
         <div>
 
@@ -119,6 +146,8 @@
 
         </div>
 
+        
+
 
 
 
@@ -126,14 +155,21 @@
 
 </aside>
 
+<script id="encheres-data" type="application/json">
+            {{ encheres|json_encode|raw }}
+ </script>
+
+
+
 <section class=" grid-container" data-js-produit>
         
           <!--   <h1>les timbres de {{session.username}}</h1> -->
 
-     
-            {% for enchere in encheres %}
         
-                  <article class="aritcle-1">
+            {% for enchere in encheres %}
+
+        
+                  <article data-js-produit class="aritcle-1 condition-aritcle-1">
                     
 
                 <div class="infos-image">
@@ -178,56 +214,7 @@
 
                     </div>
 
-                 <!--    <div>
-                        <form   action="{{path}}enchere/destroy" method="post">
-                            <input type="hidden" name="id" value="{{enchere.id}}">
-                            <input type="submit" value="supprimer">
-                        </form>
-                    </div> -->
-              
-
-
-                 
-                   
-                   <!--  <p>
-                        {% if timbre.certifie == 1 %}
-                        <div class="infos-secondaires-box">
-                            <p>certifié </p>
-                            <p><span class="info-span">Oui</span> </p>
-                        </div>
-                        {% else %}
-                        <div class="infos-secondaires-box">
-                            <p>certifié </p>
-                            <p><span class="info-span">Non</span> </p>
-                        </div>    
-                        {% endif %}
-                    </p>
-                    
-                    <div class="infos-secondaires-box"> 
-                    <p>pays </p>
-                    <p><span class="info-span">{{timbre.pays}}</span></p>
-                    </div>
-                    
-                    <div class="infos-secondaires-box"> 
-                    <p>condition </p>
-                    <p><span class="info-span">{{timbre.condition_nom}}</span></p>
-                    </div>
-                 
-                </div>
-
-                <div class='btn-supp-modif'>
-
-
-                     <input type="submit" value="Miser" class="bouton-personnalise"> -->
-
-                   <!-- <a href="{{path}}timbre/show/{{timbre.id}}" class="bouton-personnalise">afficher</a><br>
-                   <a href="{{path}}timbre/edit/{{timbre.id}}" class="bouton-personnalise">modifier</a> -->
-               <!--     <td><a href="{{path}}voiture/show/{{voiture.id}}">{{voiture.marque}}</a></td> -->
-                   
-                <!-- </div> --> 
-
-            
-       
+                
             </article>
            
             {% endfor %}

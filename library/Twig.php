@@ -18,6 +18,8 @@ class Twig{
         echo $twig->render($template, $data);
     }
 
+    
+
 }
 
 

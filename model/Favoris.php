@@ -64,6 +64,44 @@ class Favoris extends CRUD {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function isEnchereFavori($enchere_id, $user_id) {
+        $conditions = ['user_id' => $user_id, 'enchere_id' => $enchere_id];
+        $enchereFavoris = $this->find($conditions);
+        // print_r(!empty($enchereFavoris));
+        // die();
+    
+        // var_dump($enchereFavoris);  // Affiche le résultat de la recherche dans la console
+
+
+         
+        return !empty($enchereFavoris);
+    }
+
+   
+        // ... Autres méthodes de votre classe Favoris ...
+    
+        public function deleteEnchereFavori($enchere_id, $user_id) {
+            $conditions = ['user_id' => $user_id, 'enchere_id' => $enchere_id];
+            $enchereFavoris = $this->find($conditions);
+    
+            if (!empty($enchereFavoris)) {
+                $this->delete($enchereFavoris[0]['id']);
+            }
+        }
+
+
+        public function getFavorisByUserId($user_id) {
+            // Remplacez le code ci-dessous par votre logique de récupération des favoris par ID utilisateur depuis la base de données
+            // Assurez-vous de retourner un tableau d'IDs d'enchères favoris
+            $query = "SELECT enchere_id FROM favoris WHERE user_id = :user_id";
+            // ...
+        
+            // Exemple fictif : retourne un tableau avec des IDs d'enchères favoris
+            return [1, 2, 3];
+        }
+  
+
+
 
 
 
